@@ -1,5 +1,6 @@
 import { SocialIcon } from "react-social-icons";
 import Article from "./components/Article";
+import BlogSection from "./components/blog/BlogSection";
 
 export default function Home() {
   return (
@@ -77,6 +78,7 @@ export default function Home() {
             link="https://www.heraldsun.com.au/leader/east/glendal-primary-school-students-program-robotic-guinea-pig-to-help-domestic-violence-survivors/news-story/90735dd3cf6857936225e83629e4943c"
           />
         </div>
+        <BlogSection />
       </main>
     </>
   );

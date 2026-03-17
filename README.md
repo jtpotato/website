@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Joel Tan - Personal Website
+
+A personal website built with Next.js and TypeScript.
+
+It currently includes:
+
+- A homepage with profile information, social links, and featured external articles.
+- A file-based blog section powered by MDX (`/blog` and `/blog/[slug]`).
+- Existing three.js/react-three-fiber components in `app/components` for 3D experiences.
+
+## Tech Stack
+
+- Next.js (App Router)
+- React + TypeScript
+- Tailwind CSS v4
+- `next-mdx-remote` (RSC mode) + `gray-matter` for MDX blog content
+- three.js + react-three-fiber + drei (for 3D components)
+
+## Project Structure
+
+```text
+app/
+  blog/
+    [slug]/page.tsx        # Blog post page
+    page.tsx               # Blog index page
+  components/
+    blog/
+      BlogCard.tsx         # Reusable blog preview card
+      BlogSection.tsx      # Home page blog section
+    ...                    # Existing site components
+  globals.css
+  layout.tsx
+  page.tsx                 # Home page
+content/
+  blog/
+    welcome.mdx            # Example MDX post
+lib/
+  blog.ts                  # Blog content loading/parsing logic
+```
 
 ## Getting Started
 
-First, run the development server:
+### 1) Install dependencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2) Run in development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+bun run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open `http://localhost:3000`.
 
-## Learn More
+## Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `bun run dev` - Start dev server
+- `bun run build` - Build for production
+- `bun run start` - Run production server
+- `bun run lint` - Run ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Blog Authoring (MDX)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Add posts by creating `.mdx` files in `content/blog`.
 
-## Deploy on Vercel
+Each post should include frontmatter:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```mdx
+---
+title: "Post title"
+date: "YYYY-MM-DD"
+excerpt: "Short summary shown in cards"
+tags:
+  - tag-one
+  - tag-two
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Your MDX content goes here.
+```
+
+Notes:
+
+- `slug` is derived from the file name.
+  - Example: `content/blog/my-first-post.mdx` -> `/blog/my-first-post`
+- Posts are sorted newest-first by `date`.
+- The homepage displays the latest 3 posts.
+
+## Deploy
+
+Deploy as a standard Next.js app (for example on Vercel).
+
+```bash
+bun run build
+bun run start
+```
+
+## Maintenance Notes
+
+- Keep blog logic centralized in `lib/blog.ts`.
+- Keep UI components split by responsibility (`BlogSection`, `BlogCard`, pages).
+- If you later need syntax highlighting/remark plugins, add them inside `lib/blog.ts` where `compileMDX` is called.
