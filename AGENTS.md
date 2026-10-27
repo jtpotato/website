@@ -18,3 +18,4 @@ This is a living document that describes the codebase and actions for any AI age
 - Compose blog UI from small files (`BlogSection`, `BlogCard`, list page, post page) instead of a single monolithic component.
 - In Next.js async route pages, avoid wrapping JSX returns in `try/catch`; return `null`/sentinel from data helpers and call `notFound()` in the page.
 - Keep homepage project tiles in a reusable `app/components/ProjectLink.tsx` component; accept optional icon content so projects without icons retain centered labels, and use square grid cells with the same hover treatment as article links.
+- For separately deployed Vite apps mounted under a path on the main site, set Vite's `base` to that path and keep central routing/redirect rules in the main deployment configuration.

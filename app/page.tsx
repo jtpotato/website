@@ -65,6 +65,7 @@ export default function Home() {
         <div className="flex flex-wrap justify-items-start gap-2">
           <ProjectLink href="/locker-formatter" title="Locker Formatter" />
           <ProjectLink href="/choreo-viewer" title="Choreo Viewer" />
+          <ProjectLink href="/ti-stream" title="TI Calculator Screenshare" />
         </div>
         {/* Links to articles I'm in */}
         <h2 className="font-bold mt-16 mb-4 text-gray-400">Articles</h2>
