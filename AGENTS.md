@@ -19,3 +19,4 @@ This is a living document that describes the codebase and actions for any AI age
 - In Next.js async route pages, avoid wrapping JSX returns in `try/catch`; return `null`/sentinel from data helpers and call `notFound()` in the page.
 - Keep homepage project tiles in a reusable `app/components/ProjectLink.tsx` component; accept optional icon content so projects without icons retain centered labels, and use square grid cells with the same hover treatment as article links.
 - For separately deployed Vite apps mounted under a path on the main site, set Vite's `base` to that path and keep central routing/redirect rules in the main deployment configuration.
+- Next.js App Router serves `app/favicon.svg` automatically as a site icon; SVG emoji can be represented with a centered `<text>` element and emoji-capable system font fallbacks.
