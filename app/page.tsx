@@ -1,6 +1,7 @@
 import { SocialIcon } from "react-social-icons";
 import Article from "./components/Article";
 import BlogSection from "./components/blog/BlogSection";
+import ProjectLink from "./components/ProjectLink";
 
 export default function Home() {
   return (
@@ -58,6 +59,12 @@ export default function Home() {
             borderRadius="0%"
             className="hover:bg-gray-800"
           />
+        </div>
+        {/* Links to web projects/tools */}
+        <h2 className="font-bold mt-16 mb-4 text-gray-400">Tools I Made</h2>
+        <div className="flex flex-wrap justify-items-start gap-2">
+          <ProjectLink href="/locker-formatter" title="Locker Formatter" />
+          <ProjectLink href="/choreo-viewer" title="Choreo Viewer" />
         </div>
         {/* Links to articles I'm in */}
         <h2 className="font-bold mt-16 mb-4 text-gray-400">Articles</h2>
